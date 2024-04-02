@@ -13,6 +13,7 @@
             from: "user2",
         },
     ];
+
 </script>
 
 <main>
@@ -30,8 +31,16 @@
 <style>
     h2 {
         font-weight: bold;
+        color: #76ABAE
+    }
+    p {
+        color: #EEEEEE
     }
     .chat {
         width: 70vw;
+        background-color: #222831;
+        border-radius: 5% 5% 0 0;
+        padding: 10px;
+
     }
 </style>

@@ -6,17 +6,28 @@
 </script>
 
 <main>
-    <div class="main-view">
-        <Hubs />
-        <Channels />
-        <Chat />
-        <Users />
+    <div class="scroll-container">
+        <div class="main-view">
+            <Hubs />
+            <Channels />
+            <Chat />
+            <Users />
+        </div>
     </div>
 </main>
 
 <style>
+    /* Styles for the scrolling container */
+  .scroll-container {
+    height: 100vh; /* 100% viewport height */
+    overflow-y: scroll; /* Enable vertical scrolling */
+    background-color: #1f252a; /* Background color (optional) */
+    padding: 10px 0;
+    
+  }
     .main-view {
         display: flex;
         flex-direction: row;
+        background-color: #1f252a
     }
 </style>

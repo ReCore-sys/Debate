@@ -3,3 +3,9 @@ export interface Message {
     content: string;
     from: string;
 }
+
+export interface Hub {
+    id: number;
+    name: string;
+    imageurl: string;
+}
