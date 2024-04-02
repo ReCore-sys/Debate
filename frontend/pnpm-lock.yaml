@@ -11,7 +11,7 @@ dependencies:
 
 devDependencies:
   '@sveltejs/vite-plugin-svelte':
-    specifier: ^3.0.1
+    specifier: ^3.0.2
     version: 3.0.2(svelte@4.2.12)(vite@5.2.7)
   '@tauri-apps/cli':
     specifier: ^1
