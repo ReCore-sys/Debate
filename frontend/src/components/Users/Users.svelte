@@ -27,6 +27,9 @@
         background-color: transparent;
         display: flex;
         flex-direction: column;
+        position: fixed;
+        right:0;
+        background-color: #1f252a;
 
     }
 
@@ -43,3 +46,4 @@
   color: #e6e9f2;
   }
 </style>
+

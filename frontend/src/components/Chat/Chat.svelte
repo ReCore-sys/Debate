@@ -41,6 +41,32 @@
         background-color: #222831;
         border-radius: 5% 5% 0 0;
         padding: 10px;
-
+        position:fixed;
+        bottom:0;
+        padding-bottom:10vw;
+        overflow-y: scroll;
+        overflow:   none;
+    }
+    .message
+    {
+    overflow:   auto;
+    bottom:     0; 
     }
 </style>
+
+
+<!--
+#chatbox
+{
+    overflow:   none;
+    position:   relative;
+    width:      100%;
+    height:     400px;
+}
+#chatmessages
+{
+    overflow:   auto;
+    position:   absolute;
+    bottom:     0;
+    max-height: 400px;
+} -->
