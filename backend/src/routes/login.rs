@@ -1,15 +1,16 @@
-use crate::database;
 use rocket::serde::json::Json;
 use serde::Deserialize;
 
+use crate::database;
+
 #[derive(Deserialize)]
-struct LoginRequest {
-    username: String,
+pub struct LoginRequest {
+    uuid: String,
     password: String,
 }
 
 #[post("/login", data = "<data>", format = "json")]
-pub fn login(data: Json<LoginRequest>) -> String {
-    let session_id = database::users::check_login(&data.username, &data.password).unwrap();
+pub async fn login(data: Json<LoginRequest>) -> String {
+    let session_id = database::users::check_login(&data.uuid, &data.password).await.unwrap();
     session_id
 }

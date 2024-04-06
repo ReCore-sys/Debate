@@ -1,0 +1,5 @@
+surreal_username: "debatedb777"
+surreal_password: "debatedb777"
+surreal_host: "127.0.0.1:9000"
+nats_host: "127.0.0.1:4222"
+surreal_db: "dev"
