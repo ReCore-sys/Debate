@@ -1,16 +1,40 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
-// Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-#[tauri::command]
-fn greet(name: &str) -> String {
-    format!("Hello, {}! You've been greeted from Rust!", name)
+use std::sync::atomic::AtomicBool;
+use std::sync::Mutex;
+
+use crate::config::config::Config;
+
+mod account {
+    pub mod login;
+}
+
+pub mod config {
+    pub mod config;
+}
+
+pub struct GlobalState {
+    pub session_id: Mutex<Option<String>>,
+    pub logged_in: AtomicBool,
+    pub config: Config,
+}
+
+impl Default for GlobalState {
+    fn default() -> Self {
+        Self {
+            session_id: Mutex::new(None),
+            logged_in: AtomicBool::new(false),
+            config: config::config::get_config(),
+        }
+    }
 }
 
 fn main() {
     tauri::Builder::default()
+        .manage(GlobalState::default())
         .plugin(tauri_plugin_shell::init())
-        .invoke_handler(tauri::generate_handler![greet])
+        .invoke_handler(tauri::generate_handler![account::login::login])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

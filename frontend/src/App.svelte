@@ -3,9 +3,14 @@
     import Chat from "./components/Chat/Chat.svelte";
     import Hubs from "./components/Hubs/Hubs.svelte";
     import Users from "./components/Users/Users.svelte";
+    import Login from "./components/Login/Login.svelte";
+    $: logged_in = false;
+    $: session_token = "";
 </script>
 
 <main>
+    {#if logged_in}
+    <h1>Token: {session_token}</h1>
     <div class="scroll-container">
         <div class="main-view">
             <Hubs />
@@ -14,6 +19,9 @@
             <Users />
         </div>
     </div>
+    {:else}
+    <Login bind:logged_in bind:session_token />
+    {/if}
 </main>
 
 <style>
@@ -30,4 +38,3 @@
         background-color: #1f252a
     }
 </style>
-

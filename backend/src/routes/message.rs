@@ -1,6 +1,7 @@
 use rocket::http::Status;
 use rocket::serde::json::Json;
-use crate::database::messages::{Message, send_message};
+use crate::database::messages::{send_message};
+use mutual_types::Message;
 
 #[post("/message/<session>", data = "<data>", format = "json")]
 pub async fn message(data: Json<Message>, session: String) -> Status {

@@ -260,6 +260,7 @@ name = "backend"
 version = "0.1.0"
 dependencies = [
  "lazy_static",
+ "mutual_types",
  "rand",
  "rocket",
  "rusqlite",
@@ -1729,6 +1730,13 @@ dependencies = [
  "tokio",
  "tokio-util",
  "version_check",
+]
+
+[[package]]
+name = "mutual_types"
+version = "0.1.0"
+dependencies = [
+ "serde",
 ]
 
 [[package]]

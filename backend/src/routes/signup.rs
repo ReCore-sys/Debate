@@ -2,7 +2,7 @@ use rocket::http::Status;
 use rocket::serde::json::Json;
 
 use crate::database;
-use crate::database::users::User;
+use mutual_types::User;
 
 #[post("/signup", data = "<data>", format = "json")]
 pub async fn signup(data: Json<User>) -> Status {
