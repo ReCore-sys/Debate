@@ -16,6 +16,7 @@
 </script>
 
 <main>
+    <!--<div class="overflow-y-scroll ..."></div>-->
     <div class="message-bar">
         <input type="text" placeholder="Type a message..." />
         <button on:click={sendMessage}>Send</button>
@@ -32,27 +33,29 @@
        
     }
     .message-bar {
-        background-color: #222831;
+        background-color: transparent;
         border-radius: 0 0 5% 5%;
         margin-bottom: 10px;
         position:fixed;
         bottom:0;
         width: 70vw;
         padding: 10px;
-        align-items: center;
-        
+        align-items: center;        
     }
 
     .message-bar button {
-        background-color: #31363F;
+        background-color: transparent;
         color: #e6e9f2;
         width: 10vw;
+        background-color: rgba(46, 67, 68, 0.4);
+        box-shadow: inset 0px -2px 5px rgba(0, 0, 0, 0.3);
     }
 
     .message-bar input {
-        background-color: #31363F;
+        background-color: transparent;
         color: #e6e9f2;
         width: 56vw;
-
+        background-color: rgba(46, 67, 68, 0.4);
+        box-shadow: inset 0px -2px 5px rgba(0, 0, 0, 0.3);
     }
 </style>

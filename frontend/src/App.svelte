@@ -11,13 +11,11 @@
 <main>
     {#if logged_in}
     <h1>Token: {session_token}</h1>
-    <div class="scroll-container">
-        <div class="main-view">
+    <div class="main-view">
             <Hubs />
             <Channels />
             <Chat />
             <Users />
-        </div>
     </div>
     {:else}
     <Login bind:logged_in bind:session_token />
@@ -25,16 +23,23 @@
 </main>
 
 <style>
-    /* Styles for the scrolling container */
-  .scroll-container {
-    height: 100vh; /* 100% viewport height */
-    background-color: #1f252a; /* Background color (optional) */
-    padding: 10px 0;
-    
-  }
+
     .main-view {
         display: flex;
         flex-direction: row;
-        background-color: #1f252a
     }
+
+    main {
+      background-image: url('../../../public/loginbkgb.png');
+      background-size: cover;
+      background-position: center;
+      font-family: "Lato", sans-serif;
+      font-weight: 400;
+      font-style: normal;    
+      height: 100vh; /* 100% viewport height */
+      padding: 10px 0;
+
+
+  }
+
 </style>

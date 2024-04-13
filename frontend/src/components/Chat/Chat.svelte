@@ -38,7 +38,7 @@
     }
     .chat {
         width: 70vw;
-        background-color: #222831;
+        background-color: transparent;
         border-radius: 5% 5% 0 0;
         padding: 10px;
         position:fixed;
@@ -49,9 +49,21 @@
     }
     .message
     {
-    overflow:   auto;
-    bottom:     0; 
+        overflow:   auto;
+        bottom:     0; 
+        margin-top: 0.5rem;
+        margin-bottom: 10px; /* Spacing between form elements */
+        display: block;
+        width: 100%;
+        color: #EEEEEE;
+        border-radius: 10px;
+        box-shadow: inset 0px -2px 5px rgba(0, 0, 0, 0.3);
+        background-color: rgba(46, 67, 68, 0.4);
+        padding: 10px;
+      
     }
+
+    
 </style>
 
 
