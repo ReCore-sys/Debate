@@ -803,7 +803,6 @@ dependencies = [
  "serde",
  "serde_json",
  "serde_yaml",
- "sha3",
  "tauri",
  "tauri-build",
  "tauri-plugin-shell",
@@ -1807,6 +1806,7 @@ name = "mutual_types"
 version = "0.1.0"
 dependencies = [
  "serde",
+ "sha3",
 ]
 
 [[package]]

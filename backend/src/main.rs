@@ -1,9 +1,13 @@
 #[macro_use]
+extern crate log;
+extern crate pretty_env_logger;
+#[macro_use]
 extern crate rocket;
 
 use which::which;
 
 use crate::config::get_config;
+
 
 pub mod database;
 pub mod routes;
@@ -11,12 +15,15 @@ mod config;
 
 #[tokio::main(flavor = "multi_thread")]
 async fn main() {
-    match which("nats-server.exe") {
-        Ok(_) => {}
-        Err(_) => {
-            println!("Please install nats-server.exe");
-            std::process::exit(1);
-        }
+    pretty_env_logger::init();
+    {
+        // match which("nats-server.exe") {
+        //     Ok(_) => {}
+        //     Err(_) => {
+        //         println!("Please install nats-server.exe");
+        //         std::process::exit(1);
+        //     }
+        // }
     }
     match which("surreal") {
         Ok(_) => {}
@@ -25,11 +32,12 @@ async fn main() {
             std::process::exit(1);
         }
     }
-
-
-    tokio::spawn(async {
-        std::process::Command::new("nats-server.exe").spawn()
-    });
+    
+    {
+        // tokio::spawn(async {
+        //     std::process::Command::new("nats-server.exe").spawn()
+        // });
+    }
     tokio::spawn(
         async {
             std::process::Command::new("surreal")

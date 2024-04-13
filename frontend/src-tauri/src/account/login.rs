@@ -1,5 +1,4 @@
 use reqwest::Client;
-use sha3::{Digest, Sha3_256};
 use tauri::{Error, State};
 
 use mutual_types::LoginRequest;
@@ -7,18 +6,11 @@ use mutual_types::LoginRequest;
 use crate::config::config::get_config;
 use crate::GlobalState;
 
-pub fn hash_string(s: String) -> String {
-    let mut hasher = Sha3_256::new();
-    hasher.update(s);
-    let result = hasher.finalize();
-    format!("{:x}", result)
-}
-
 #[tauri::command]
 pub async fn login(username: String, password: String, state: State<'_, GlobalState>) -> Result<Option<String>, Error> {
     let login_request = LoginRequest {
         username,
-        password: hash_string(password),
+        password,
     };
     let client = Client::new();
     let res = client.post(format!("{}/login", get_config().api_host))
