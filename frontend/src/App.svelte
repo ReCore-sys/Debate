@@ -36,7 +36,7 @@
       font-family: "Lato", sans-serif;
       font-weight: 400;
       font-style: normal;    
-      height: 100vh; /* 100% viewport height */
+      height: 100vh;
       padding: 10px 0;
 
 
