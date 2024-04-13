@@ -1,12 +1,18 @@
 <script lang="ts">
     import { invoke } from '@tauri-apps/api/core'
-    export let logged_in: bool;
+    import Signup from '../Signup/Signup.svelte';
+    export let logged_in: boolean;
     export let session_token: string;
+    
     $: failed_login = false;
-    function login(e) {
-    e.preventDefault();
-    invoke("login", {username: document.getElementById("username")?.value, password: document.getElementById("password")?.value}).
-    then((response) => {
+    $: signup_active = false;
+
+    function login() {
+      invoke("login", {
+        username: document.getElementById("username")?.nodeValue, 
+        password: document.getElementById("password")?.nodeValue
+      }).
+      then((response) => {
         if (response != "") {
             console.log(response);
             logged_in = true;
@@ -14,23 +20,29 @@
         } else {
             failed_login = true;
         }
-    });
+      });
     }
 </script>
 
 <main>
-    <!--<h1>Login</h1>
-    <h2>Logged in: {logged_in}</h2>-->
-    <form>
+    {#if !signup_active}
+      <form>
         <label for="username">Username</label>
         <input type="username" id="username" name="username" required>
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required>
-        <button on:click={login}>Login</button>
-    </form>
-    {#if failed_login}
-    <h2>Failed to login</h2>
+        <button on:click|preventDefault={login}>Login</button>
+      </form>
+      {#if failed_login}
+      <h2>Failed to login</h2>
+      {/if}
+    {:else}
+      <Signup bind:signup_active />
     {/if}
+    <button on:click={() => {signup_active = !signup_active}}>
+    Sign up
+    </button>
+
 </main>
 
 <style>
