@@ -8,14 +8,15 @@ use which::which;
 
 use crate::config::get_config;
 
-
 pub mod database;
 pub mod routes;
 mod config;
 
 #[tokio::main(flavor = "multi_thread")]
 async fn main() {
-    pretty_env_logger::init();
+    pretty_env_logger::env_logger::Builder::from_default_env()
+        .filter_module("backend", log::LevelFilter::Trace)
+        .init();
     {
         // match which("nats-server.exe") {
         //     Ok(_) => {}
@@ -32,7 +33,7 @@ async fn main() {
             std::process::exit(1);
         }
     }
-    
+
     {
         // tokio::spawn(async {
         //     std::process::Command::new("nats-server.exe").spawn()
@@ -53,5 +54,6 @@ async fn main() {
                 .spawn().unwrap().wait()
         }
     );
-    rocket::build().mount("/", routes![routes::login::login, routes::signup::signup, routes::message::message]).ignite().await.unwrap().launch().await.expect("Web server failed to start");
+    rocket::build()
+        .mount("/", routes![routes::login::login, routes::signup::signup, routes::message::message]).ignite().await.unwrap().launch().await.expect("Web server failed to start");
 }
