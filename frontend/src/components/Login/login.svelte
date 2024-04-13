@@ -36,12 +36,12 @@
 
 <main>
     {#if !signup_active}
-      <form>
+      <form on:submit|preventDefault={login}>
         <label for="username">Username</label>
         <input type="username" id="username" name="username" required>
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required>
-        <button on:click|preventDefault={login}>Login</button>
+        <button type="submit">Login</button>
         <button class="signupbutton" on:click={() => {signup_active = !signup_active}}>
           New user? Create an account
           </button>
