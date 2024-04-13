@@ -7,10 +7,20 @@
     $: failed_login = false;
     $: signup_active = false;
 
-    function login() {
+    function login(e) {
+      
+      let formdata = new FormData(e.target)
+    
+      let data: {[key: string]: string} = {}
+
+      for (let field of formdata) {
+        const [key, value] = field
+        data[key] = value.toString()
+      }
+
       invoke("login", {
-        username: document.getElementById("username")?.nodeValue, 
-        password: document.getElementById("password")?.nodeValue
+        username: data["username"], 
+        password: data["password"]
       }).
       then((response) => {
         if (response != "") {
