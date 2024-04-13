@@ -7,9 +7,9 @@ use crate::config::config::get_config;
 use crate::GlobalState;
 
 #[tauri::command]
-pub async fn login(username: String, password: String, state: State<'_, GlobalState>) -> Result<Option<String>, Error> {
+pub async fn login(email: String, password: String, state: State<'_, GlobalState>) -> Result<Option<String>, Error> {
     let login_request = LoginRequest {
-        username,
+        email,
         password,
     };
     let client = Client::new();

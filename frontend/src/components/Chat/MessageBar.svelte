@@ -27,10 +27,6 @@
     greys with high contrast: #e0e0e0 and #f2f2f2
     grey with a blueish tint to match nordic theme: #e6e9f2*/
 
-    .container {
-     margin: 0px; 
-       
-    }
     .message-bar {
         background-color: #222831;
         border-radius: 0 0 5% 5%;

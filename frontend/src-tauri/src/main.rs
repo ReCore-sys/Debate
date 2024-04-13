@@ -8,6 +8,7 @@ use crate::config::config::Config;
 
 mod account {
     pub mod login;
+    pub mod signup;
 }
 
 pub mod config {
@@ -34,7 +35,7 @@ fn main() {
     tauri::Builder::default()
         .manage(GlobalState::default())
         .plugin(tauri_plugin_shell::init())
-        .invoke_handler(tauri::generate_handler![account::login::login])
+        .invoke_handler(tauri::generate_handler![account::login::login, account::signup::signup])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

@@ -21,27 +21,27 @@ pub async fn gen_random_session_id() -> String {
 /// and password. If the user is found in the database, a new session is created
 /// and the session ID is returned. If the user is not found, an empty string is
 /// returned.
-pub async fn get_session_token(username: &str, password: &str) -> Result<String, surrealdb::Error> {
-    trace!("Attempting sessions token generation for {}:{}", username, password);
+pub async fn get_session_token(email: &str, password: &str) -> Result<String, surrealdb::Error> {
+    trace!("Attempting sessions token generation for {}:{}", email, password);
     let conn = connect().await?;
 
-    let mut query = "SELECT * FROM users WHERE username = $username AND password = $password";
+    let mut query = "SELECT * FROM users WHERE email = $email AND password = $password";
 
-    let mut result = conn.query(query).bind(("username", username)).bind(("password", password)).await?;
+    let mut result = conn.query(query).bind(("email", email)).bind(("password", password)).await?;
     return if result.take::<Vec<User>>(0)?.len() == 1 {
-        trace!("Username and password combination valid for {}:{}", username, password);
-        let uuid = user_from_username(username).await?.unwrap().uuid;
+        trace!("Username and password combination valid for {}:{}", email, password);
+        let uuid = user_from_email(email).await?.unwrap().uuid;
         query = "DELETE FROM sessions WHERE uuid = $uuid";
         conn.query(query).bind(("uuid", &uuid)).await?;
         let session_id = gen_random_session_id().await;
-        trace!("Generated session ID: {} for {}:{}", session_id, username, password);
+        trace!("Generated session ID: {} for {}:{}", session_id, email, password);
         let session_id = session_id.as_str();
         query = "INSERT INTO sessions (session_id, uuid) VALUES ($session_id, $uuid)";
         conn.query(query).bind(("session_id", session_id)).bind(("uuid", uuid)).await?;
         trace!("Session ID inserted into database");
         Ok(session_id.to_string())
     } else {
-        trace!("Username and password combination not valid for {}:{}", username, password);
+        trace!("Username and password combination not valid for {}:{}", email, password);
         Ok("".to_string())
     };
 }
@@ -120,6 +120,31 @@ pub async fn user_from_username(username: &str) -> Result<Option<User>, surreald
         Ok(None)
     }
 }
+
+pub async fn user_from_email(email: &str) -> Result<Option<User>, surrealdb::Error> {
+    trace!("Attempting to retrieve user with email: {}", email);
+    let conn = connect().await?;
+
+    let query = "SELECT * FROM users WHERE email = $email";
+
+    let mut result = conn.query(query).bind(("email", email)).await?.take::<Vec<User>>(0)?;
+    if result.len() == 1 {
+        match result.pop() {
+            Some(user) => {
+                trace!("Email {} found: {}", email, user.username);
+                Ok(Some(user))
+            }
+            None => {
+                trace!("Email {} not found", email);
+                Ok(None)
+            }
+        }
+    } else {
+        trace!("Email {} not found", email);
+        Ok(None)
+    }
+}
+
 
 /// Validate a session ID.
 ///

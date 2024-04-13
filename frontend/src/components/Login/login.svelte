@@ -19,7 +19,7 @@
       }
 
       invoke("login", {
-        username: data["username"], 
+        email: data["email"], 
         password: data["password"]
       }).
       then((response) => {
@@ -37,8 +37,8 @@
 <main>
     {#if !signup_active}
       <form on:submit|preventDefault={login}>
-        <label for="username">Username</label>
-        <input type="username" id="username" name="username" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required>
         <button type="submit">Login</button>
@@ -57,6 +57,7 @@
 
 <style>    
 
+  @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
   main {
       display: flex;
       flex-direction: column;
@@ -149,6 +150,5 @@
   }
 
 
-  @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
 </style>
