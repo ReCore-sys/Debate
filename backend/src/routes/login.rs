@@ -1,5 +1,4 @@
 use rocket::serde::json::Json;
-use serde::Deserialize;
 use mutual_types::LoginRequest;
 
 use crate::database;

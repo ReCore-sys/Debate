@@ -1,6 +1,4 @@
-use rand;
 use rand::Rng;
-use uuid;
 
 use mutual_types::User;
 
