@@ -5,12 +5,12 @@
     $: failed_login = false;
     function login(e) {
     e.preventDefault();
-    invoke("login", {username: document.getElementById("username").value, password: document.getElementById("password").value}).
+    invoke("login", {username: document.getElementById("username")?.value, password: document.getElementById("password")?.value}).
     then((response) => {
         if (response != "") {
             console.log(response);
             logged_in = true;
-            session_token = response;
+            session_token = response as string;
         } else {
             failed_login = true;
         }
@@ -19,8 +19,8 @@
 </script>
 
 <main>
-    <h1>Login</h1>
-    <h2>Logged in: {logged_in}</h2>
+    <!--<h1>Login</h1>
+    <h2>Logged in: {logged_in}</h2>-->
     <form>
         <label for="username">Username</label>
         <input type="username" id="username" name="username" required>
@@ -34,27 +34,107 @@
 </main>
 
 <style>
+    
     main {
         display: flex;
         flex-direction: column;
         align-items: center;
+        height: 100vh;
+        background-image: url('../../../public/bkg.png');
+        background-size: cover;
+        background-position: center;
+        border-radius: 10px; /* Rounded corners for the glass pane */
+        padding: 20px;
+    
     }
 
     form {
         display: flex;
         flex-direction: column;
         align-items: center;
+        background-color: rgba(46, 67, 68, 0.4); /* Semi-transparent white */
+        box-shadow: inset 0px -2px 5px rgba(0, 0, 0, 1.5); /* Adjust as needed */
+        padding: 20px;
+        align-content: center;
+        justify-content: center;
+        border-radius: 10px; /* Adjust corner roundness as needed */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Center form relative to viewport */
+        padding-left: 100px;
+        padding-right: 100px;
     }
 
     label {
         margin-top: 1rem;
+        margin-bottom: 10px; /* Spacing between form elements */
+        display: block;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        color: #EEEEEE;
     }
 
     input {
         margin-top: 0.5rem;
+        margin-bottom: 10px; /* Spacing between form elements */
+        display: block;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        color: #222831;
     }
 
     button {
-        margin-top: 1rem;
+        margin-top: 2rem;
+        align-items: center;
+        text-align: center;
+
     }
+
 </style>
+<!--
+
+    .login-container {
+  /* Adjust background image/video URL */
+  background-image: url("path/to/your/background.jpg");
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(10px); /* Adjust blur intensity */
+  border-radius: 10px; /* Rounded corners for the glass pane */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  padding: 20px;
+}
+
+.login-form label,
+.login-form input,
+.login-form button {
+  margin-bottom: 10px; /* Spacing between form elements */
+  display: block;
+  width: 100%;
+}
+
+.login-form button {
+  background-color: #007bff; /* Primary accent color */
+  color: #fff; /* White text color */
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Optional: subtle border for the login form */
+.login-form {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+
+-->
