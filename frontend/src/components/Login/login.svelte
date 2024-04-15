@@ -39,9 +39,9 @@
     <div class="isolate aspect-video w-96 rounded-xl bg-white/5 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md">
       <form on:submit|preventDefault={login}>
         <label for="email">Email</label>
-        <input class="bg-white/0 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md" type="email" id="email" name="email" required>
+        <input class="bg-white/5 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md" type="email" id="email" name="email" required>
         <label for="password">Password</label>
-        <input class="bg-white/0 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md" type="password" id="password" name="password" required>
+        <input class="bg-white/5 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md" type="password" id="password" name="password" required>
         <button class="loginbutton bg-white/0 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md" type="submit">Login</button>
         <button class="signupbutton bg-transparent shadow-none" on:click={() => {signup_active = !signup_active}}>
           New user? Create an account
@@ -86,7 +86,8 @@
     align-items: center;
     text-align: center;
     width: 100%;
-    color: #EEEEEE;     
+    color: #EEEEEE;  
+    margin-bottom: 15px;   
     }
 
 
@@ -100,6 +101,8 @@
 
   .loginbutton {
     color: #EEEEEE;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   .signupbutton {
@@ -115,7 +118,7 @@
       transition: background-color 0.3s ease;
       text-decoration: underline;
   }
-  /*
+  /* Old CSS without tailwind
   @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
   main {
       display: flex;

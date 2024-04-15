@@ -38,18 +38,14 @@
 <main class="overflow-hidden">
   <div body>
   <!--<h1>Signup</h1>-->
-       
-      <form on:submit|preventDefault={signup} class="
-      flex-col items-center flex h-fit w-fit bg-grey-400 rounded-md 
-      bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 
-      border border-gray-100 my-12 space-y-4 p-8
-    ">
+  <div class="isolate aspect-video w-96 rounded-xl bg-white/5 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md"> 
+      <form on:submit|preventDefault={signup}>
         <label for="username">Username</label>
-        <input type="username" id="username" name="username" required>
+        <input class="bg-white/5 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md" type="username" id="username" name="username" required>
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
+        <input class="bg-white/5 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md" type="password" id="password" name="password" required>
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <input class="bg-white/5 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md" type="email" id="email" name="email" required>
         {#if failed_signup}
           <div class="
           h-10 w-full bg-red-400 rounded-md 
@@ -59,60 +55,59 @@
             <h1>Signup Failed</h1>
           </div>
         {/if}
-        <button type="submit">Signup</button>
+        <button class="button bg-white/0 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md" type="submit">Signup</button>
       </form>
   </div>
+</div>
 </main>
 
 <style>    
 
 main {
-    background-size: cover;
-    background-position: center;
-}
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        padding: 20px;
+      }
 
-.body {
-}
+  form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      align-content: center;
+      justify-content: center;
+      }
 
-label {
+  input, label {
+    
+    margin-bottom: 10px;
     display: block;
     align-items: center;
     text-align: center;
     width: 100%;
+    color: #EEEEEE;  
+    margin-bottom: 15px;   
+    }
+
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus, 
+  input:-webkit-autofill:active  {
+      transition: background-color 5000s;
+      -webkit-text-fill-color: #fff !important;
+    }
+
+  .button {
     color: #EEEEEE;
-    
-}
-
-input {
-    display: block;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    color: #EEEEEE;
-    border-radius: 10px;
-    box-shadow: inset 0px -2px 5px rgba(0, 0, 0, 0.3);
-    background-color: rgba(46, 67, 68, 0.4);
-    
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active  {
-  transition: background-color 5000s;
-  -webkit-text-fill-color: #fff !important;
-}
-
-
-button {
-    margin-top: 2rem;
-    align-items: center;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: inset 0px -2px 5px rgba(0, 0, 0, 0.3);
-    background-color: rgba(46, 67, 68, 0.4);
-    color: #EEEEEE;
-
-}
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 
 </style>

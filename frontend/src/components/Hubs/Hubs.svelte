@@ -26,25 +26,29 @@
 </script>
 
 <main>
-    <div class="hubs">
+  
+<div class="isolate rounded-xl bg-white/5 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md">
+  <div class="hubs">
         {#each hubs as hub}
-            <div class="hub-button">
+            <div class="hub-button bg-white/5 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md hover:opacity-25">
                 <img class="hub-image" src={hub.imageurl} alt={hub.name} />
             </div>
         {/each}
     </div>
+  </div>  
 </main>
 
 <style>
+  /*#222831 #31363F #76ABAE #EEEEEE*/
 
   .hubs {
-    width: 10vw;
+    width: 10%;
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* Spacing between buttons */
+    gap: 1rem;
     background-color: transparent;
+  
   }
-  /*#222831 #31363F #76ABAE #EEEEEE*/
   .hub-button {
     display: flex;
     align-items: center;
@@ -54,16 +58,14 @@
     width: 6vw;
     height: 6vw;
     aspect-ratio: 1;
-    margin: 0rem 0.5rem;
-    background-color: #313631;
+    margin: 3px 0.5rem;
     cursor: pointer;
     transition: background-color 0.2s ease;
-    position: relative; /* Enable positioning of pseudo-elements */
+    position: relative;
+    
+  
   }
 
-  .hub-button:hover {
-    background-color: rgba(118, 171, 174, 0.5); /* Semi-transparent #76ABAE */
-  }
 
   .hub-button img {
     width: 100%;
@@ -72,20 +74,4 @@
     border-radius: 50%;
     }
 
-    .hub-button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(118, 171, 174, 0.8); /* Semi-transparent #76ABAE */
-    border-radius: 50%;
-    transition: background-color 0.2s ease;
-    opacity: 0; /* Initially invisible */
-    }
-
-    .hub-button:hover::before {
-  opacity: 0.5; /* Semi-transparent background on hover */
-}
 </style>
