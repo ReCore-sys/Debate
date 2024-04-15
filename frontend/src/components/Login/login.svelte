@@ -36,16 +36,18 @@
 
 <main>
     {#if !signup_active}
+    <div class="isolate aspect-video w-96 rounded-xl bg-white/5 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md">
       <form on:submit|preventDefault={login}>
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" required>
+        <input class="bg-white/0 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md" type="email" id="email" name="email" required>
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" required>
-        <button type="submit">Login</button>
-        <button class="signupbutton" on:click={() => {signup_active = !signup_active}}>
+        <input class="bg-white/0 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md" type="password" id="password" name="password" required>
+        <button class="loginbutton bg-white/0 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md" type="submit">Login</button>
+        <button class="signupbutton bg-transparent shadow-none" on:click={() => {signup_active = !signup_active}}>
           New user? Create an account
           </button>
       </form>
+      </div>
       {#if failed_login}
       <h2>Failed to login</h2>
       {/if}
@@ -55,8 +57,65 @@
 
 </main>
 
-<style>    
+<style>      
+  main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        padding: 20px;
+      }
 
+  form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      align-content: center;
+      justify-content: center;
+      }
+
+  input, label {
+    
+    margin-bottom: 10px;
+    display: block;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    color: #EEEEEE;     
+    }
+
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus, 
+  input:-webkit-autofill:active  {
+      transition: background-color 5000s;
+      -webkit-text-fill-color: #fff !important;
+    }
+
+  .loginbutton {
+    color: #EEEEEE;
+  }
+
+  .signupbutton {
+    color: #EEEEEE;
+  }  
+
+  .signupbutton:hover {
+      color: #EEEEEE;
+      background-color: transparent;
+      border-color: transparent;
+      box-shadow: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: underline;
+  }
+  /*
   @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
   main {
       display: flex;
@@ -81,18 +140,18 @@
       padding: 20px;
       align-content: center;
       justify-content: center;
-      border-radius: 10px; /* Adjust corner roundness as needed */
+      border-radius: 10px;
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%); /* Center form relative to viewport */
+      transform: translate(-50%, -50%);
       padding-left: 50px;
       padding-right: 50px;
   }
 
   label {
       margin-top: 1rem;
-      margin-bottom: 10px; /* Spacing between form elements */
+      margin-bottom: 10px;
       display: block;
       align-items: center;
       text-align: center;
@@ -103,7 +162,7 @@
 
   input {
       margin-top: 0.5rem;
-      margin-bottom: 10px; /* Spacing between form elements */
+      margin-bottom: 10px;
       display: block;
       align-items: center;
       text-align: center;
@@ -157,5 +216,5 @@ input:-webkit-autofill:active  {
   -webkit-text-fill-color: #fff !important;
 }
 
-
+*/
 </style>

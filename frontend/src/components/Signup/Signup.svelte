@@ -36,6 +36,7 @@
 </script>
 
 <main class="overflow-hidden">
+  <div body>
   <!--<h1>Signup</h1>-->
        
       <form on:submit|preventDefault={signup} class="
@@ -60,14 +61,17 @@
         {/if}
         <button type="submit">Signup</button>
       </form>
+  </div>
 </main>
 
 <style>    
 
 main {
-    background-image: url('../../../public/signupbkg.png');
     background-size: cover;
     background-position: center;
+}
+
+.body {
 }
 
 label {

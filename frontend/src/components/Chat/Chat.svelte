@@ -45,8 +45,9 @@
         bottom:0;
         padding-bottom:10vw;
         overflow-y: scroll;
-        overflow:   none;
+        overflow: hidden;
     }
+
     .message
     {
         overflow:   auto;

@@ -43,12 +43,18 @@
 
 <style>
     .channels {
-    width: 10vw;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
     background-color: transparent;
-    text-align: center;
+    top: 10px;
+    bottom: 10px;  
+    width: 10vw;
     align-items: center;
+    background-color: rgba(46, 67, 68, 0.4);
+    box-shadow: inset 0px -2px 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
     }
 
     .channel-button {
@@ -66,3 +72,6 @@
   }
 
 </style>
+
+
+

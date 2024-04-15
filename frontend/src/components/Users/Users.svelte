@@ -23,14 +23,20 @@
 
 <style>
     .users {
-        width: 10vw;
         background-color: transparent;
         display: flex;
         flex-direction: column;
         position: fixed;
-        right:0;
-        background-color: #1f252a;
-
+        right: 10px;
+        top: 10px;
+        bottom: 10px;  
+        width: 10vw;
+        align-items: center;
+        background-color: rgba(46, 67, 68, 0.4);
+        box-shadow: inset 0px -2px 5px rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        border-radius: 10px;
+        overflow-y: auto;
     }
 
     .user-button {
@@ -39,7 +45,7 @@
     justify-content: center;
     border: none;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: 0.2s ease;
   }
 
   .user-button h2 {
