@@ -18,8 +18,8 @@
 <main>
     <!--<div class="overflow-y-scroll ..."></div>-->
     <div class="message-bar">
-        <input type="text" placeholder="Type a message..." />
-        <button on:click={sendMessage}>Send</button>
+        <input class="bg-white/5 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md"type="text" placeholder="Type a message..." />
+        <button class="bg-white/5 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md"on:click={sendMessage}>Send</button>
     </div>
 </main>
 <style>
@@ -34,7 +34,7 @@
         margin-bottom: 10px;
         position:fixed;
         bottom:0;
-        width: 70vw;
+        width: 70%;
         padding: 10px;
         align-items: center;        
     }
@@ -42,16 +42,12 @@
     .message-bar button {
         background-color: transparent;
         color: #e6e9f2;
-        width: 10vw;
-        background-color: rgba(46, 67, 68, 0.4);
-        box-shadow: inset 0px -2px 5px rgba(0, 0, 0, 0.3);
+        width: 10%;
     }
 
     .message-bar input {
         background-color: transparent;
         color: #e6e9f2;
-        width: 56vw;
-        background-color: rgba(46, 67, 68, 0.4);
-        box-shadow: inset 0px -2px 5px rgba(0, 0, 0, 0.3);
+        width: 56%;
     }
 </style>

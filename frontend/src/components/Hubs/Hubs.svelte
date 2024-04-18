@@ -27,7 +27,7 @@
 
 <main>
   
-<div class="isolate rounded-xl bg-white/5 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md">
+<div class="isolate rounded-bl-x1 bg-white/5 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md">
   <div class="hubs">
         {#each hubs as hub}
             <div class="hub-button bg-white/5 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md hover:opacity-25">
@@ -43,10 +43,12 @@
 
   .hubs {
     width: 10%;
+    height: 88%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     background-color: transparent;
+    justify-content: center;
   
   }
   .hub-button {

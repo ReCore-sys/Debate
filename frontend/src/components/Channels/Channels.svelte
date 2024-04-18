@@ -32,7 +32,7 @@
 </script>
 
 <main>
-    <div class="channels">
+    <div class="channels isolate rounded-bl-x1 bg-white/5 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md">
         {#each channels as channel}
             <div class="channel-button">
                 <h2>{channel.name}</h2>
@@ -43,18 +43,25 @@
 
 <style>
     .channels {
+    width: 10%;
+    height: 88%;
     display: flex;
+    margin-left: 10%;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: transparent;
+    justify-content: center;
+    /*display: flex;
     flex-direction: column;
     overflow-y: auto;
     background-color: transparent;
     top: 10px;
     bottom: 10px;  
-    width: 10vw;
+    width: 10%;
     align-items: center;
-    background-color: rgba(46, 67, 68, 0.4);
-    box-shadow: inset 0px -2px 5px rgba(0, 0, 0, 0.3);
+
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 10px;*/
     }
 
     .channel-button {

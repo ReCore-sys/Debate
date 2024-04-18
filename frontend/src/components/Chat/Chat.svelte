@@ -38,13 +38,13 @@
         color: #EEEEEE
     }
     .chat {
-        width: 70%;
+        width: 66%;
         background-color: transparent;
         padding: 10px;
         position:fixed;
         bottom:10px;
         top: 0;
-        padding-bottom:10vw;
+        padding-bottom:10%;
         overflow-y: scroll;
         overflow: hidden;
     }
