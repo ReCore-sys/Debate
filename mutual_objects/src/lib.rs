@@ -1,5 +1,5 @@
-pub use crate::types::*;
 pub use crate::functions::*;
+pub use crate::types::*;
 
-mod types;
-mod functions;
+pub mod functions;
+pub mod types;

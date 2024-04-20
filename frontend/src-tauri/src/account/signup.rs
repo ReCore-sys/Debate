@@ -5,7 +5,7 @@ use mutual_types::User;
 use crate::GlobalState;
 
 #[tauri::command]
-pub async fn signup(user: User, state: State<'_, GlobalState>) -> Result<bool, Error> {
+pub async fn signup(user: User, state: State<'_, GlobalState>) -> Result<Option<bool>, Error> {
     let client = reqwest::Client::new();
     let res = client.post(format!("{}/signup", state.config.api_host))
         .json(&user)
@@ -14,15 +14,15 @@ pub async fn signup(user: User, state: State<'_, GlobalState>) -> Result<bool, E
     return match res {
         Ok(res) => {
             if res.status().is_success() {
-                Ok(true)
+                Ok(Some(true))
             } else {
-                Ok(false)
+                Ok(Some(false))
             }
         }
         Err(e) => {
             if e.is_builder() {}
             eprintln!("{}", e);
-            Ok(false)
+            Ok(Some(false))
         }
     };
 }

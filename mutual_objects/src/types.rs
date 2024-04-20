@@ -1,8 +1,7 @@
 use serde::{Deserialize, Serialize};
 use ts_rs::TS;
 
-#[derive(Debug, Deserialize, Serialize)]
-#[derive(TS)]
+#[derive(Debug, Deserialize, Serialize, TS)]
 #[ts(export)]
 pub struct User {
     pub username: String,
@@ -13,8 +12,7 @@ pub struct User {
     pub bio: String,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
-#[derive(TS)]
+#[derive(Debug, Deserialize, Serialize, Clone, TS)]
 #[ts(export)]
 pub struct Message {
     pub author: String,
@@ -23,10 +21,16 @@ pub struct Message {
     pub channel: String,
 }
 
-#[derive(Deserialize, Serialize)]
-#[derive(TS)]
+#[derive(Deserialize, Serialize, TS)]
 #[ts(export)]
 pub struct LoginRequest {
     pub email: String,
     pub password: String,
+}
+
+#[derive(Deserialize, Serialize, TS)]
+#[ts(export)]
+pub struct StatusResponse {
+    pub db: bool,
+    // Add more things here as we need them
 }
