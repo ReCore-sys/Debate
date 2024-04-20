@@ -10,16 +10,17 @@
         },
     ];
 </script>
-
-<div class="rounded-br-x1 isolate bg-white/5 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md">
-    <div class="users bg-white/5 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md">
-        {#each users as user}
-            <div class="user-button">
-                <h2>{user.username}</h2>
-            </div>
-        {/each}
+<main>
+    <div class="users rounded-br-x1 isolate bg-white/5 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md">
+        <div class=" bg-white/5 shadow-lg ring-1 ring-black/5 bg-clip-padding backdrop-filter backdrop-blur-md">
+            {#each users as user}
+                <div class="user-button">
+                    <h2>{user.username}</h2>
+                </div>
+            {/each}
+        </div>
     </div>
-</div>
+</main>
 
 <style>
     .users {
@@ -34,7 +35,7 @@
         align-items: center;
         padding: 20px;
         border-radius: 10px;
-        overflow-y: auto;
+        overflow-y: auto; 
     }
 
     .user-button {

@@ -30,7 +30,7 @@
     }
 
     main {
-      background-image: url('../../../public/backgroundgeo.png');
+      background-image: url('../../../public/mainbkg.png');
       background-size: cover;
       background-position: center;
       font-family: "Lato", sans-serif;

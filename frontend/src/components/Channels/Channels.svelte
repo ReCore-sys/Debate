@@ -43,25 +43,16 @@
 
 <style>
     .channels {
-    width: 10%;
-    height: 88%;
     display: flex;
-    margin-left: 10%;
-    flex-direction: column;
-    gap: 1rem;
-    background-color: transparent;
-    justify-content: center;
-    /*display: flex;
     flex-direction: column;
     overflow-y: auto;
     background-color: transparent;
     top: 10px;
     bottom: 10px;  
-    width: 10%;
+    /* width: 10%; */
     align-items: center;
-
     padding: 20px;
-    border-radius: 10px;*/
+    border-radius: 10px;
     }
 
     .channel-button {
